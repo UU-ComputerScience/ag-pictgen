@@ -23,6 +23,9 @@
 \newcommand{\agdeplinedowndownbold}[4]{ \draw[->,style=agdepstyle,line width=2pt] (#2.south) .. controls +(0,-1) and +(0,-1) .. (#3.south); }
 \newcommand{\agdeplinedowndowndashed}[4]{ \draw[->,style=agdepstyle, dashed] (#2.south) .. controls +(0,-1) and +(0,-1) .. (#3.south); }
 \newcommand{\agdeplinedownup}[4]{ \draw[->,style=agdepstyle] (#2.south) .. controls +(0,-1) and +(0,1) .. (#3.north); }
-\newcommand{\agpicture}[1]{ \begin{tikzpicture}\input{#1.tikz}\end{tikzpicture} }
+\newcommand{\agpictureScaledAtY}[4]{ \begingroup\renewcommand{\agcoordpary}{#1}\renewcommand{\agcoordlocy}{#2}\begin{tikzpicture}[scale=#3, transform shape]\input{#4.tikz}\end{tikzpicture}\endgroup }
+\newcommand{\agpictureScaled}[2]{ \agpictureScaledAtY{5}{3}{#1}{#2} }
+\newcommand{\agpictureAtY}[3]{ \agpictureScaledAtY{#1}{#2}{1}{#3} }
+\newcommand{\agpicture}[1]{ \agpictureScaled{1}{#1} }
 %% \newcommand{\agpicture}[1]{ Snip. }
 
